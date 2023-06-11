@@ -35,22 +35,22 @@
 
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DCSServerStats</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script type="text/javascript" src="css/tools.js"></script>
-  </head>
-  <body onload="timer()">
-	  <a href="?pilots">Pilots</a> - 
-	  <a href="?flights">Flights</a> - 
-	  <a href="?aircrafts">Aircrafts</a> - 
-	  <a href="?weapons">Weapons</a> - 
-	  <a href="?map">Live Radar Map</a>
-	  <?php $simStats->echoSiteContent(); ?>
-	  <br><br>
-	  <?php $simStats->echoUpdateInfo(); ?>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>DCSServerStats</title>
+		<link rel="stylesheet" href="css/style.css">
+	<script type="text/javascript" src="css/tools.js"></script>
+	</head>
+	<body onload="timer()">
+		<a href="?pilots">Pilots</a> - 
+		<a href="?flights">Flights</a> - 
+		<a href="?aircrafts">Aircrafts</a> - 
+		<a href="?weapons">Weapons</a> - 
+		<a href="?map">Live Radar Map</a>
+		<?php $simStats->echoSiteContent(); ?>
+		<br><br>
+		<?php $simStats->echoUpdateInfo(); ?>
+	</body>
 </html>
 
