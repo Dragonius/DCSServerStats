@@ -4,5 +4,5 @@
 .settings
 *.acmi
 *.xml
-/.vscode
+/.vscode/
 php/.vscode/
