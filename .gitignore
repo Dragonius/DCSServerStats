@@ -4,6 +4,6 @@
 .settings
 *.acmi
 *.xml
-/.vscode/*
+
+#VScode 
 .vscode/*
-php/.vscode/*
