@@ -65,20 +65,20 @@ public class DCSServerStats {
 		System.out.println("Starting Server");
 		
 		serverSocket = new DatagramSocket(Integer.parseInt(port));
-    	byte[] receiveData = new byte[1024];
-    	DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
-    	
+		byte[] receiveData = new byte[1024];
+		DatagramPacket receivePacket = new DatagramPacket(receiveData, receiveData.length);
+
     	//receive loop
-    	while(true) {
-    		serverSocket.receive(receivePacket);
-    		
-    		String sentence = new String( receivePacket.getData(), 0, receivePacket.getLength());
-    		System.out.println("Received: " + sentence);
-    		
+		while(true) {
+			serverSocket.receive(receivePacket);
+
+			String sentence = new String( receivePacket.getData(), 0, receivePacket.getLength());
+			System.out.println("Received: " + sentence);
+	
     		//add to queue
-    		long unixTime = System.currentTimeMillis() / 1000L;
-    		eventQueue.add(unixTime + ","+sentence);
-    	}
+			long unixTime = System.currentTimeMillis() / 1000L;
+			eventQueue.add(unixTime + ","+sentence);
+		}
 	}
 	
 	public class HttpSendThread extends Thread {
@@ -162,7 +162,7 @@ public class DCSServerStats {
 			//debugging
 			
 			BufferedReader in = new BufferedReader(
-			        new InputStreamReader(con.getInputStream()));
+				new InputStreamReader(con.getInputStream()));
 			String inputLine;
 			StringBuffer response = new StringBuffer();
 
