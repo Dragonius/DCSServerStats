@@ -1,0 +1,13 @@
+SELECT 
+    aircraftid,
+    lat,
+    lon,
+    alt,
+    MAX(time) AS time
+FROM
+    position_data 
+GROUP BY aircraftid;
+
+
+
+check lines 113
