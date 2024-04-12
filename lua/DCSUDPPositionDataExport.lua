@@ -26,6 +26,7 @@ local socket = require("socket")
 
 local SETCoalition = 
 {
+	[0] = "neutral",
 	[1] = "red",
 	[2] = "blue",
 }
