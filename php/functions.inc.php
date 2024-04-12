@@ -20,7 +20,7 @@
 class SimStats {
 	protected $mysqli;
 	
-	public function __construct(mysqli $mysqli) {
+	public function SimStats(mysqli $mysqli) {
 		$this->mysqli = $mysqli;
 	}
 	
@@ -1007,5 +1007,4 @@ class SimStatsAdmin extends SimStats {
 		}
 	}
 }
- 	
 ?>
