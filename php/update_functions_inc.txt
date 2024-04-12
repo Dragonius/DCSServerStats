@@ -11,3 +11,8 @@ GROUP BY aircraftid;
 
 
 check lines 113
+
+
+SELECT aircrafts.id, aircrafts.flights, aircrafts.name, aircrafts.flighttime, aircrafts.ejects, aircrafts.crashes, aircrafts.kills, 1 
+FROM aircrafts 
+ORDER BY aircrafts.flighttime DESC
