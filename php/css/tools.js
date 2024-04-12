@@ -1,6 +1,6 @@
 var map;
 var markers = [];
-var mapCenter = {lat: 38.18638677, lng: -115.16967773};
+var mapCenter = [38.18638677, -115.16967773]; // Leaflet uses arrays for coordinates
 var mapZoom = 7;
 var flightId = -1;
 
@@ -65,156 +65,99 @@ function timer() {
 
 
 function flushMapChanges() {
-	map.panTo(mapCenter);
-	map.setZoom(mapZoom);
+    map.setView(mapCenter, mapZoom);
 }
 
 function setMapCenter(center) {
-	mapCenter = center;
+    mapCenter = center;
 }
 
 function setMapZoom(zoom) {
-	mapZoom = zoom;
+    mapZoom = zoom;
 }
 
 function setFlightId(fid) {
-	flightId = fid;
+    flightId = fid;
 }
 
 function initLiveRadarMap() {
-	initMap();
-	loadLiveRadarMapInfo();
+    initMap();
+    loadLiveRadarMapInfo();
 }
 
 function initFlightPathMap() {
-	initMap();
-	loadFlightPathMap();
+    initMap();
+    loadFlightPathMap();
 }
 
 function initMap() {
-	// Specify features and elements to define styles.
-	var customMapType = new google.maps.StyledMapType([
-	{
-		featureType: "all",
-		stylers: [
-			{ saturation: -80 }
-		]
-	},{
-		featureType: "road.arterial",
-		elementType: "geometry",
-		stylers: [
-			{ hue: "#00ffee" },
-			{ saturation: 50 }
-			]
-	},{
-		featureType: "poi.business",
-		elementType: "labels",
-		stylers: [
-			{ visibility: "off" }
-		]
-	}
-	], {
-		name: 'Radar'
-	});
-	var customMapTypeId = 'custom_style';
-	
-	//create map
-	map = new google.maps.Map(document.getElementById('map'), {
-		center: mapCenter,
-		zoom: mapZoom,
-		mapTypeControlOptions: {
-			mapTypeIds: [google.maps.MapTypeId.ROADMAP, customMapTypeId]
-		}
-	});
-	map.mapTypes.set(customMapTypeId, customMapType);
-	map.setMapTypeId(customMapTypeId);
+    // Initialize the map
+    map = L.map('map').setView(mapCenter, mapZoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
 }
-
 
 function loadLiveRadarMapInfo() {
-	//load new map info every 30 secs
-	window.setTimeout(loadLiveRadarMapInfo, 30000);
-	
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (xhttp.readyState == 4 && xhttp.status == 200) {
-			deleteMarkers();
-			var json = JSON.parse(xhttp.responseText);
-			for (i=0; i < json.flights.length; i++) {
-				var text = "<table><tr><td>Pilot:</td><td>" + json.flights[i].pilot + "</td></tr><tr><td>Aircraft:</td><td>" + json.flights[i].ac + "</td></tr></table>";
-				
-				addMapMarker(json.flights[i].lat, json.flights[i].lng, json.flights[i].pilot, text, json.flights[i].path, false);
-			}
-		}
-	};
-	xhttp.open("GET", "index.php?mapjson", true);
-	xhttp.send();
-}
+    // Load new map info every 30 seconds
+    window.setTimeout(loadLiveRadarMapInfo, 30000);
 
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            deleteMarkers();
+            var json = JSON.parse(xhttp.responseText);
+            for (i = 0; i < json.flights.length; i++) {
+                var text = "<table><tr><td>Pilot:</td><td>" + json.flights[i].pilot + "</td></tr><tr><td>Aircraft:</td><td>" + json.flights[i].ac + "</td></tr></table>";
+
+                addMapMarker(json.flights[i].lat, json.flights[i].lng, json.flights[i].pilot, text, json.flights[i].path, false);
+            }
+        }
+    };
+    xhttp.open("GET", "index.php?mapjson", true);
+    xhttp.send();
+}
 
 function loadFlightPathMap() {
-	var xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function() {
-		if (xhttp.readyState == 4 && xhttp.status == 200) {
-			deleteMarkers();
-			var json = JSON.parse(xhttp.responseText);
-			var text = "<b>Landing Point</b><table><tr><td>Pilot:</td><td>" + json.pilot + "</td></tr><tr><td>Aircraft:</td><td>" + json.ac + "</td></tr></table>";
-			addMapMarker(json.path[0].lat, json.path[0].lng, json.pilot, text, json.path, true);
-		}
-	};
-	xhttp.open("GET", "index.php?mapjsonid=" + flightId, true);
-	xhttp.send();
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+        if (xhttp.readyState == 4 && xhttp.status == 200) {
+            deleteMarkers();
+            var json = JSON.parse(xhttp.responseText);
+            var text = "<b>Landing Point</b><table><tr><td>Pilot:</td><td>" + json.pilot + "</td></tr><tr><td>Aircraft:</td><td>" + json.ac + "</td></tr></table>";
+            addMapMarker(json.path[0].lat, json.path[0].lng, json.pilot, text, json.path, true);
+        }
+    };
+    xhttp.open("GET", "index.php?mapjsonid=" + flightId, true);
+    xhttp.send();
 }
-
 
 function addMapMarker(lat, lng, name, text, pathline, show_always) {
-	var infowindow = new google.maps.InfoWindow({
-    	content: text
-  	});
-  	
-  	var flightPath = new google.maps.Polyline({
-		path: pathline,
-		geodesic: true,
-		strokeColor: '#FF0000',
-		strokeOpacity: 1.0,
-		strokeWeight: 2
-	});
-  	
-	var marker = new google.maps.Marker({
-		map: map,
-		position: {lat: lat, lng: lng},
-		title: name
-	});
-	
-	marker.addListener('click', function() {
-    	infowindow.open(map, marker);
-  	});
-  	
-  	if (!show_always) {
-	  	marker.addListener('mouseover', function() {
-		  	flightPath.setMap(map);
-	  	});
-	  	
-	  	marker.addListener('mouseout', function() {
-		  	flightPath.setMap(null);
-	  	});
-  	} else {
-	  	flightPath.setMap(map);
-  	}
-  	
-  	markers.push(marker);
+    var marker = L.marker([lat, lng]).addTo(map);
+    var popupContent = "<div><b>" + name + "</b><br>" + text + "</div>";
+    marker.bindPopup(popupContent);
+
+    if (!show_always) {
+        marker.on('mouseover', function() {
+            var flightPath = L.polyline(pathline, { color: 'red' }).addTo(map);
+            markers.push(flightPath);
+        });
+
+        marker.on('mouseout', function() {
+            deleteMarkers();
+        });
+    } else {
+        var flightPath = L.polyline(pathline, { color: 'red' }).addTo(map);
+        markers.push(flightPath);
+    }
+
+    markers.push(marker);
 }
 
-
-// Sets the map on all markers in the array.
-function setMapOnAll(map) {
-	for (var i = 0; i < markers.length; i++) {
-		markers[i].setMap(map);
-	}
-}
-
-// Deletes all markers in the array by removing references to them.
+// Deletes all markers and flight paths from the map
 function deleteMarkers() {
-	setMapOnAll(null);
-	markers = [];
+    for (var i = 0; i < markers.length; i++) {
+        map.removeLayer(markers[i]);
+    }
+    markers = [];
 }
