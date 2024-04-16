@@ -71,6 +71,14 @@ local SETWeaponCatName =
 	[3] = "BOMB",
 }
 
+local SETWcoalitionservice = 
+{
+	[0] = "ATC",
+	[1] = "AWACS",
+	[2] = "TANKER",
+	[3] = "FAC",
+}
+
 local wEvent = {
 	[0] = "S_EVENT_INVALID" ,
 	[1] = "S_EVENT_SHOT" ,
@@ -123,7 +131,13 @@ local wEvent = {
 	[48] = "S_EVENT_WEAPON_DROP" ,
 	[49] = "S_EVENT_UNIT_TASK_TIMEOUT" ,
 	[50] = "S_EVENT_UNIT_TASK_STAGE" ,
-	[51] = "S_EVENT_MAX" ,
+	[52] = "S_EVENT_MAX" ,
+	[53] = "S_EVENT_MAC_SUBTASK_SCORE" ,
+	[54] = "S_EVENT_MAC_EXTRA_SCORE" ,
+	[55] = "S_EVENT_MISSION_RESTART" ,
+	[56] = "S_EVENT_MISSION_WINNER" ,
+	[57] = "S_EVENT_POSTPONED_TAKEOFF" ,
+	[58] = "S_EVENT_POSTPONED_LAND" ,
 }
 
 -- not in use YET
