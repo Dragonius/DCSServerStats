@@ -1831,39 +1831,3 @@
  event:weapon_type=9243142,initiatorPilotName=FA-18C_hornet,target_coalition=1,linked_event_id=1301,targetMissionID=56,target_ws_type1=1,initiator_object_id=16807937,target=MiG-25PD,target_object_id=16777473,targetPilotName=MiG-25PD,type=kill,target_unit_type=MiG-25PD,t=2155.71,initiator_unit_type=FA-18C_hornet,event_id=1314,weapon=20mm HE,initiator_ws_type1=1,initiatorMissionID=54,initiator_coalition=2,
  event:weapon_type=9243142,initiatorPilotName=FA-18C_hornet,target_coalition=1,linked_event_id=1563,targetMissionID=58,target_ws_type1=1,initiator_object_id=16807937,target=MiG-25PD,target_object_id=16778497,targetPilotName=MiG-25PD,type=kill,target_unit_type=MiG-25PD,t=2250.32,initiator_unit_type=FA-18C_hornet,event_id=1567,weapon=20mm HE,initiator_ws_type1=1,initiatorMissionID=54,initiator_coalition=2,
  event:weapon_type=9243142,initiatorPilotName=FA-18C_hornet,target_coalition=1,linked_event_id=2775,targetMissionID=138,target_ws_type1=1,initiator_object_id=16805889,target=Mi-24V,target_object_id=16784385,targetPilotName=Mi-24V,type=kill,target_unit_type=Mi-24V,t=2462.34,initiator_unit_type=FA-18C_hornet,event_id=2784,weapon=20mm HE,initiator_ws_type1=1,initiatorMissionID=46,initiator_coalition=2,
- invalid source_params(woLA-16783105:default): gain
- invalid source_params(woLA-16783105:default): gain
- invalid source_params(woLA-16783105:default): gain
- invalid source_params(woLA-16783105:default): gain
- invalid source_params(woLA-16783105:default): gain
- invalid source_params(woLA-16783105:default): gain pitch
- invalid source_params(woLA-16799489:default): gain
- invalid source_params(woLA-16799745:default): gain
- invalid source_params(woLA-16800001:default): gain
- invalid source_params(woLA-16800001:default): gain
- invalid source_params(woLA-16800257:default): gain
- invalid source_params(woLA-16800513:default): gain
- invalid source_params(woLA-16800513:default): gain
- invalid source_params(woLA-16800769:default): gain
- invalid source_params(woLA-16801025:default): gain
- invalid source_params(woLA-16801025:default): gain
- invalid source_params(woLA-16801281:default): gain
- invalid source_params(woLA-16801281:default): gain
- invalid source_params(woLA-16801537:default): gain
- invalid source_params(woLA-16801793:default): gain
- invalid source_params(woLA-16801793:default): gain
- invalid source_params(woLA-16802049:default): gain
- invalid source_params(woLA-16802049:default): gain
- invalid source_params(woLA-16802305:default): gain
- invalid source_params(woLA-16802561:default): gain
- invalid source_params(woLA-16802817:default): gain
- invalid source_params(woLA-16802817:default): gain
- invalid source_params(woLA-16803073:default): gain
- invalid source_params(woLA-16803073:default): gain
- invalid source_params(woLA-16803329:default): gain
- invalid source_params(woLA-16803329:default): gain
- Radio storage is filled with more than 300 radio pairs
- Radio storage is filled with more than 300 radio pairs
- Radio storage size reduced
- Radio storage size reduced
- Stop
