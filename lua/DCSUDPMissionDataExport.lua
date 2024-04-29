@@ -34,6 +34,9 @@ local SETCoalition =
 	[0] = "neutral",
 	[1] = "red",
 	[2] = "blue",
+	[3] = "UNKNOWK1",
+	[4] = "UNKNOWK2",
+	[5] = "UNKNOWK3",
 }
 
 local SETGroupCat = 
@@ -43,6 +46,9 @@ local SETGroupCat =
 	[2] = "GROUND",
 	[3] = "SHIP",
 	[4] = "STRUCTURE",
+	[5] = "UNKNOWK1",
+	[6] = "UNKNOWK2",
+	[7] = "UNKNOWK3",
 }
 
 local SETfield =
@@ -61,6 +67,9 @@ local SETfield =
 	[12] = "Target Group Category",
 	[13] = "Target Type",
 	[14] = "Target Player",
+	[15] = "UNKNOWK1",
+	[16] = "UNKNOWK2",
+	[17] = "UNKNOWK3",
 }
 
 local SETWeaponCatName = 
@@ -69,6 +78,9 @@ local SETWeaponCatName =
 	[1] = "MISSILE",
 	[2] = "ROCKET",
 	[3] = "BOMB",
+	[4] = "UNKNOWK1",
+	[5] = "UNKNOWK2",
+	[6] = "UNKNOWK3",
 }
 
 local SETWcoalitionservice = 
@@ -77,6 +89,9 @@ local SETWcoalitionservice =
 	[1] = "AWACS",
 	[2] = "TANKER",
 	[3] = "FAC",
+	[4] = "UNKNOWK1",
+	[5] = "UNKNOWK2",
+	[6] = "UNKNOWK3",
 }
 
 local wEvent = {
