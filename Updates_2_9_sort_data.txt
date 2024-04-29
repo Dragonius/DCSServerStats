@@ -1,41 +1,11 @@
 
-
-
- 1 duplicate message(s) skipped.
- 1 duplicate message(s) skipped.
- 1 duplicate message(s) skipped.
- 1 duplicate message(s) skipped.
- 2 duplicate message(s) skipped.
- 3 duplicate message(s) skipped.
- 3 duplicate message(s) skipped.
- 4 duplicate message(s) skipped.
- 9 duplicate message(s) skipped.
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
- CREATING PATH MAKES TOO LONG!!!!!
  event:initiatorPilotName=MiG-19P,target_coalition=1,linked_event_id=0,targetMissionID=0,target_ws_type1=1,initiator_object_id=16779265,target=,target_object_id=33577473,targetPilotName=,type=eject,target_unit_type=,t=1110.58,initiator_unit_type=MiG-19P,event_id=1009,initiator_ws_type1=1,initiatorMissionID=65,initiator_coalition=1,
  event:initiatorPilotName=MiG-19P,target_coalition=1,linked_event_id=0,targetMissionID=0,target_ws_type1=1,initiator_object_id=16780289,target=,target_object_id=33579009,targetPilotName=,type=eject,target_unit_type=,t=1113.34,initiator_unit_type=MiG-19P,event_id=1018,initiator_ws_type1=1,initiatorMissionID=75,initiator_coalition=1,
  event:initiatorPilotName=MiG-29S,target_coalition=1,linked_event_id=0,targetMissionID=0,target_ws_type1=1,initiator_object_id=16781057,target=,target_object_id=33574657,targetPilotName=,type=eject,target_unit_type=,t=1091.86,initiator_unit_type=MiG-29S,event_id=987,initiator_ws_type1=1,initiatorMissionID=78,initiator_coalition=1,
  event:initiatorPilotName=MiG-29S,target_coalition=1,linked_event_id=0,targetMissionID=0,target_ws_type1=1,initiator_object_id=16781313,target=,target_object_id=33562113,targetPilotName=,type=eject,target_unit_type=,t=870.16,initiator_unit_type=MiG-29S,event_id=733,initiator_ws_type1=1,initiatorMissionID=85,initiator_coalition=1,
  event:initiatorPilotName=MiG-29S,target_coalition=1,linked_event_id=0,targetMissionID=0,target_ws_type1=1,initiator_object_id=16782081,target=,target_object_id=33581313,targetPilotName=,type=eject,target_unit_type=,t=1119.52,initiator_unit_type=MiG-29S,event_id=1026,initiator_ws_type1=1,initiatorMissionID=83,initiator_coalition=1,
  event:initiatorPilotName=MiG-29S,target_coalition=1,linked_event_id=0,targetMissionID=0,target_ws_type1=1,initiator_object_id=16782337,target=,target_object_id=33567745,targetPilotName=,type=eject,target_unit_type=,t=991.68,initiator_unit_type=MiG-29S,event_id=900,initiator_ws_type1=1,initiatorMissionID=84,initiator_coalition=1,
+ 
  event:type=ai abort mission,initiatorPilotName=FA-18C_hornet,t=1034.77,initiator_unit_type=FA-18C_hornet,initiator_object_id=16805121,linked_event_id=0,event_id=929,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=53,
  event:type=ai abort mission,initiatorPilotName=FA-18C_hornet,t=1035.431,initiator_unit_type=FA-18C_hornet,initiator_object_id=16805121,linked_event_id=0,event_id=932,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=53,
  event:type=ai abort mission,initiatorPilotName=FA-18C_hornet,t=1050.8,initiator_unit_type=FA-18C_hornet,initiator_object_id=16805633,linked_event_id=0,event_id=944,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=55,
@@ -65,6 +35,7 @@
  event:type=ai abort mission,initiatorPilotName=MiG-29S,t=1117.506,initiator_unit_type=MiG-29S,initiator_object_id=16782081,linked_event_id=0,event_id=1025,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=83,
  event:type=ai abort mission,initiatorPilotName=MiG-29S,t=868.141,initiator_unit_type=MiG-29S,initiator_object_id=16781313,linked_event_id=0,event_id=732,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=85,
  event:type=ai abort mission,initiatorPilotName=MiG-29S,t=989.661,initiator_unit_type=MiG-29S,initiator_object_id=16782337,linked_event_id=0,event_id=896,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=84,
+ 
  event:type=crash,initiatorPilotName=FA-18C_hornet,t=1064.001,initiator_unit_type=FA-18C_hornet,initiator_object_id=16805121,linked_event_id=0,event_id=960,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=53,
  event:type=crash,initiatorPilotName=FA-18C_hornet,t=1072.381,initiator_unit_type=FA-18C_hornet,initiator_object_id=16805633,linked_event_id=0,event_id=962,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=55,
  event:type=crash,initiatorPilotName=FA-18C_hornet,t=1109.561,initiator_unit_type=FA-18C_hornet,initiator_object_id=16803585,linked_event_id=0,event_id=1008,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=47,
@@ -82,6 +53,7 @@
  event:type=crash,initiatorPilotName=MiG-29S,t=1105.38,initiator_unit_type=MiG-29S,initiator_object_id=16781057,linked_event_id=0,event_id=1004,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=78,
  event:type=crash,initiatorPilotName=MiG-29S,t=1142.46,initiator_unit_type=MiG-29S,initiator_object_id=16782081,linked_event_id=0,event_id=1049,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=83,
  event:type=crash,initiatorPilotName=MiG-29S,t=894.24,initiator_unit_type=MiG-29S,initiator_object_id=16781313,linked_event_id=0,event_id=741,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=85,
+ 
  event:type=engine startup,initiatorPilotName=A-10C_2,place=Incirlik,t=1222.001,placeDisplayName=Incirlik,initiator_unit_type=A-10C_2,initiator_object_id=16795905,linked_event_id=0,event_id=1101,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=17,
  event:type=engine startup,initiatorPilotName=A-10C_2,place=Incirlik,t=1223.001,placeDisplayName=Incirlik,initiator_unit_type=A-10C_2,initiator_object_id=16796673,linked_event_id=0,event_id=1102,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=20,
  event:type=engine startup,initiatorPilotName=A-10C_2,place=Incirlik,t=1223.301,placeDisplayName=Incirlik,initiator_unit_type=A-10C_2,initiator_object_id=16796417,linked_event_id=0,event_id=1103,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=19,
@@ -157,6 +129,7 @@
  event:type=engine startup,initiatorPilotName=MiG-29S,place=Hama,t=22.7,placeDisplayName=Hama,initiator_unit_type=MiG-29S,initiator_object_id=16782081,linked_event_id=0,event_id=408,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=83,
  event:type=engine startup,initiatorPilotName=MiG-29S,place=Hama,t=24.2,placeDisplayName=Hama,initiator_unit_type=MiG-29S,initiator_object_id=16781313,linked_event_id=0,event_id=412,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=85,
  event:type=engine startup,initiatorPilotName=MiG-29S,place=Hama,t=24.4,placeDisplayName=Hama,initiator_unit_type=MiG-29S,initiator_object_id=16782337,linked_event_id=0,event_id=413,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=84,
+ 
  event:type=pilot dead,initiatorPilotName=FA-18C_hornet,t=1034.77,initiator_unit_type=FA-18C_hornet,initiator_object_id=16805121,linked_event_id=0,event_id=925,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=53,
  event:type=pilot dead,initiatorPilotName=FA-18C_hornet,t=1050.8,initiator_unit_type=FA-18C_hornet,initiator_object_id=16805633,linked_event_id=0,event_id=945,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=55,
  event:type=pilot dead,initiatorPilotName=FA-18C_hornet,t=1072.42,initiator_unit_type=FA-18C_hornet,initiator_object_id=16803585,linked_event_id=0,event_id=965,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=47,
@@ -168,6 +141,7 @@
  event:type=pilot dead,initiatorPilotName=MiG-19P,t=1137.851,initiator_unit_type=MiG-19P,initiator_object_id=16779521,linked_event_id=0,event_id=1042,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=66,
  event:type=pilot dead,initiatorPilotName=MiG-19P,t=1142.806,initiator_unit_type=MiG-19P,initiator_object_id=16779777,linked_event_id=0,event_id=1052,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=67,
  event:type=pilot dead,initiatorPilotName=MiG-19P,t=977.776,initiator_unit_type=MiG-19P,initiator_object_id=16780033,linked_event_id=0,event_id=873,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=68,
+ 
  event:type=score,initiatorPilotName=FA-18C_hornet,t=1087.671,initiator_unit_type=FA-18C_hornet,linked_event_id=978,initiator_object_id=16803585,amount=50,event_id=979,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=47,
  event:type=score,initiatorPilotName=FA-18C_hornet,t=1091.86,initiator_unit_type=FA-18C_hornet,linked_event_id=988,initiator_object_id=16803073,amount=50,event_id=989,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=39,
  event:type=score,initiatorPilotName=FA-18C_hornet,t=1092.291,initiator_unit_type=FA-18C_hornet,linked_event_id=994,initiator_object_id=16803329,amount=50,event_id=995,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=46,
@@ -185,6 +159,7 @@
  event:type=score,initiatorPilotName=MiG-29S,t=864.52,initiator_unit_type=MiG-29S,linked_event_id=721,initiator_object_id=16781057,amount=50,event_id=722,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=78,
  event:type=score,initiatorPilotName=MiG-29S,t=936.05,initiator_unit_type=MiG-29S,linked_event_id=844,initiator_object_id=16782081,amount=50,event_id=845,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=83,
  event:type=score,initiatorPilotName=,t=1110.58,initiator_unit_type=,linked_event_id=1010,initiator_object_id=16803585,amount=50,event_id=1011,initiator_coalition=-1,initiator_ws_type1=200,initiatorMissionID=_16803585,
+ 
  event:type=takeoff,initiatorPilotName=A-10C_2,place=Incirlik,t=1006.701,placeDisplayName=Incirlik,initiator_unit_type=A-10C_2,initiator_object_id=16793857,linked_event_id=0,event_id=916,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=3,
  event:type=takeoff,initiatorPilotName=A-10C_2,place=Incirlik,t=1029.301,placeDisplayName=Incirlik,initiator_unit_type=A-10C_2,initiator_object_id=16794113,linked_event_id=0,event_id=922,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=10,
  event:type=takeoff,initiatorPilotName=A-10C_2,place=Incirlik,t=1041.711,placeDisplayName=Incirlik,initiator_unit_type=A-10C_2,initiator_object_id=16794369,linked_event_id=0,event_id=934,initiator_coalition=2,initiator_ws_type1=1,initiatorMissionID=11,
@@ -238,6 +213,7 @@
  event:type=takeoff,initiatorPilotName=MiG-29S,place=Hama,t=209.36,placeDisplayName=Hama,initiator_unit_type=MiG-29S,initiator_object_id=16781313,linked_event_id=0,event_id=454,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=85,
  event:type=takeoff,initiatorPilotName=MiG-29S,place=Hama,t=225.76,placeDisplayName=Hama,initiator_unit_type=MiG-29S,initiator_object_id=16782081,linked_event_id=0,event_id=455,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=83,
  event:type=takeoff,initiatorPilotName=MiG-29S,place=Hama,t=240.26,placeDisplayName=Hama,initiator_unit_type=MiG-29S,initiator_object_id=16782337,linked_event_id=0,event_id=456,initiator_coalition=1,initiator_ws_type1=1,initiatorMissionID=84,
+ 
  event:weapon_type=1181460,initiatorPilotName=MiG-29S,target_coalition=2,linked_event_id=0,targetMissionID=47,target_ws_type1=1,initiator_object_id=16782081,target=FA-18C_hornet,target_object_id=16803585,targetPilotName=FA-18C_hornet,type=bda,target_unit_type=FA-18C_hornet,t=1072.42,initiator_unit_type=MiG-29S,event_id=964,weapon=R-73 (AA-11 Archer),initiator_ws_type1=1,initiatorMissionID=83,initiator_coalition=1,
  event:weapon_type=1181460,initiatorPilotName=MiG-29S,target_coalition=2,linked_event_id=0,targetMissionID=47,target_ws_type1=1,initiator_object_id=16782081,target=FA-18C_hornet,target_object_id=16803585,targetPilotName=FA-18C_hornet,type=bda,target_unit_type=FA-18C_hornet,t=1072.42,initiator_unit_type=MiG-29S,event_id=971,weapon=R-73 (AA-11 Archer),initiator_ws_type1=1,initiatorMissionID=83,initiator_coalition=1,
  event:weapon_type=1181460,initiatorPilotName=MiG-29S,target_coalition=2,linked_event_id=0,targetMissionID=47,target_ws_type1=1,initiator_object_id=16782081,target=FA-18C_hornet,target_object_id=16803585,targetPilotName=FA-18C_hornet,type=shot,target_unit_type=FA-18C_hornet,t=1059.91,initiator_unit_type=MiG-29S,event_id=957,weapon=R-73 (AA-11 Archer),initiator_ws_type1=1,initiatorMissionID=83,initiator_coalition=1,
@@ -325,8 +301,4 @@
  event:weapon_type=6948644,initiatorPilotName=FA-18C_hornet,target_coalition=1,linked_event_id=983,targetMissionID=83,target_ws_type1=1,initiator_object_id=16803841,target=MiG-29S,target_object_id=16782081,targetPilotName=MiG-29S,type=hit,target_unit_type=MiG-29S,t=1117.506,initiator_unit_type=FA-18C_hornet,event_id=1023,weapon=AIM-120C,initiator_ws_type1=1,initiatorMissionID=48,initiator_coalition=2,
  event:weapon_type=6948644,initiatorPilotName=FA-18C_hornet,target_coalition=1,linked_event_id=984,targetMissionID=78,target_ws_type1=1,initiator_object_id=16803073,target=MiG-29S,target_object_id=16781057,targetPilotName=MiG-29S,type=kill,target_unit_type=MiG-29S,t=1091.86,initiator_unit_type=FA-18C_hornet,event_id=988,weapon=AIM-120C,initiator_ws_type1=1,initiatorMissionID=39,initiator_coalition=2,
  event:weapon_type=6948644,initiatorPilotName=FA-18C_hornet,target_coalition=1,linked_event_id=991,targetMissionID=77,target_ws_type1=1,initiator_object_id=16803329,target=MiG-19P,target_object_id=16780801,targetPilotName=MiG-19P,type=kill,target_unit_type=MiG-19P,t=1092.291,initiator_unit_type=FA-18C_hornet,event_id=994,weapon=AIM-120C,initiator_ws_type1=1,initiatorMissionID=46,initiator_coalition=2,
-New log data, Weapons dont go to sql table
- Radio storage is filled with more than 300 radio pairs
- Radio storage size reduced
- resize main window to [1024, 720]
- server has stopped
+
