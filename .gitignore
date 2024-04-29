@@ -6,7 +6,7 @@
 *.xml
 
 #VScode 
-.vscode/*
+.vscode/settings.json
 .vscode
 vscode
 
