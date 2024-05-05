@@ -1,0 +1,26 @@
+SELECT 
+    aircraftid,
+    lat,
+    lon,
+    alt,
+    MAX(time) AS time
+FROM
+    position_data 
+GROUP BY aircraftid;
+
+
+SELECT 
+    a.name,
+    p.lat,
+    p.lon,
+    p.alt,
+    MAX(p.time) AS time
+FROM
+    position_data p
+JOIN
+    aircrafts a ON p.aircraftid = a.id
+GROUP BY 
+    p.aircraftid;
+    
+    INSERT INTO Shots (weapon_type, initiatorPilotName, target_coalition, linked_event_id, targetMissionID, target_ws_type1, initiator_object_id, 
+target, target_object_id, targetPilotName, type, target_unit_type, t, initiator_unit_type, event_id, weapon, initiator_ws_type1, initiatorMissionID, initiator_coalition) VALUES ('9243142', 'FA-18C_hornet', '1', '1563', '58', '1', '16807937', 'MiG-25PD', '16778497', 'MiG-25PD', 'KILL', 'MiG-25PD', '2250.32', 'FA-18C_hornet', '1567', '20mm HE', '1', '54', '2')
