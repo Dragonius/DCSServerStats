@@ -41,12 +41,12 @@ local SETCoalition =
 
 local SETGroupCat = 
 {
-	[0] = "AIRPLANE",
-	[1] = "HELICOPTER",
-	[2] = "GROUND",
-	[3] = "SHIP",
-	[4] = "STRUCTURE",
-	[5] = "UNKNOWK1",
+	[0] = "neutral",
+	[1] = "AIRPLANE",
+	[2] = "HELICOPTER",
+	[3] = "GROUND",
+	[4] = "SHIP",
+	[5] = "STRUCTURE",
 	[6] = "UNKNOWK2",
 	[7] = "UNKNOWK3",
 }
