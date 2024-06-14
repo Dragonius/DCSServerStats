@@ -32,7 +32,7 @@ def process_csv(file_path):
                     #print(f"Ignoring malformed pair: {pair}")
                 # Construct the SQL INSERT statement
                 #sql_insert = f"INSERT INTO YourTableName ({', '.join(keys)}) VALUES ({', '.join(['%s']*len(values))})"
-            sql_insert = f"INSERT INTO YourTableName ({', '.join(keys)}) VALUES ({', '.join(values)})"
+            sql_insert = f"INSERT INTO Shots ({', '.join(keys)}) VALUES ({', '.join(values)})"
             print(sql_insert)
             
     
