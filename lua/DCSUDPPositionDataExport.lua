@@ -31,6 +31,17 @@ local SETCoalition =
 	[2] = "blue",
 }
 
+local SETGroupCat = {
+	[0] = "neutral",
+	[1] = "AIRPLANE",
+	[2] = "HELICOPTER",
+	[3] = "GROUND",
+	[4] = "SHIP",
+	[5] = "STRUCTURE",
+	[6] = "UNKNOWK2",
+	[7] = "UNKNOWK3",
+}
+
 
 CbaconPosExpClass = {
 	DefaultUpdatePeriod=30,
@@ -56,8 +67,9 @@ CbaconPosExpClass = {
 					end
 					
 					local coalition = SETCoalition[v.CoalitionID]
-					
-					local sendStr = CurrentTime .. ",S_EVENT_POSITION," .. k .. "," .. coalition .. ",AIRPLANE," .. v.Name .. "," .. unitName .. ",No Weapon,No Weapon,0," .. v.LatLongAlt.Alt .. ",POSITION," .. v.LatLongAlt.Lat .. "," .. v.LatLongAlt.Long
+					--local group = SETGroupCat[v.GroupCatID]
+
+					local sendStr = CurrentTime .. ",S_EVENT_POSITION," .. k .. "," .. coalition .. ",AEROPLANE," .. v.Name .. "," .. unitName .. ",No Weapon,No Weapon,0," .. v.LatLongAlt.Alt .. ",POSITION," .. v.LatLongAlt.Lat .. "," .. v.LatLongAlt.Long
 					
 					udp:send(sendStr)
 				end
