@@ -9,3 +9,9 @@
 .vscode/*
 .vscode
 vscode
+
+#env
+env
+.env
+venv
+.venv
