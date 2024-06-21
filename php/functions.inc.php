@@ -547,7 +547,7 @@ class SimStats {
 	
 	public function echoLiveRadarMapScript() {
 		echo "<br>
-		<a href='#' onclick=\"setMapCenter([42.858056, 41.128056]);setMapZoom(7);\">Caucasus</a>- 
+		<a href='#' onclick=\"setMapCenter([42.858056, 41.128056]);setMapZoom(7);\">Caucasus</a> - 
 		<a href='#' onclick=\"setMapCenter([38.18638677, -115.16967773]);setMapZoom(7);\">Nevada</a>
 		<br>";
 		
@@ -564,20 +564,20 @@ class SimStats {
 //		echo "</script>";
 
 		echo "<script>";
+        echo "var map = L.map('map').setView([42.858056, 41.128056], 7);"; // Initial map center and zoom level
 //		echo "const map = L.map('map', {
 //		crs: L.CRS.Simple,
 //		minZoom: 0
 //	}).setView([-50.00, 70.00], 3);";
 
 //	const bounds = [[-50.0,55], [1021.5,1023]];
-//	const zero = L.latLng([ 0, 0 ]);
+		echo "var zero = L.latLng([ 42.8, 41.1 ]);";
 //	const hund = L.latLng([-100,100]);
 //  const hand = L.latLng([-200,200]);
 
-//	L.marker(zero).addTo(map);
+		echo "L.marker(zero).addTo(map);";
 //	L.marker(hund).addTo(map);
 //	L.marker(hand).addTo(map);        
-		echo "var map = L.map('map').setView([42.858056, 41.128056], 7);"; // Initial map center and zoom level
 		echo "const tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             minZoom: 0,
             maxZoom: 17,
@@ -585,8 +585,8 @@ class SimStats {
 			//edgeBufferTiles: 1,
 			attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors',
         }).addTo(map);";
-      echo "</script>";
-
+		echo "</script>";
+	echo "<br> TEST <br>";
 	}
 	
 	public function echoMapScriptForFlight($flightid) {
@@ -609,6 +609,7 @@ class SimStats {
 //		echo "}).addTo(map);";
 //		echo "setFlightPath(map, " . $flightid . ");"; // Function to set flight path
 //		echo "</script>";
+		
 	}
 	
 	public function getLiveRadarMapInfoJSON() {
