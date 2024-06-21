@@ -551,7 +551,7 @@ class SimStats {
 		<a href='#' onclick=\"setMapCenter([38.18638677, -115.16967773]);setMapZoom(7);\">Nevada</a>
 		<br>";
 		
-		echo "<div id=\"map\" style=\"width: 100%; height: 400px;\"></div>";
+		echo "<div id=\"map\" style=\"width: 600px; height: 400px;\"></div>";
 		// Leaflet does not require an API key
 		echo "<script src=\"https://unpkg.com/leaflet/dist/leaflet.js\"></script>";
 		// Initialize the map
@@ -564,20 +564,23 @@ class SimStats {
 	}
 	
 	public function echoMapScriptForFlight($flightid) {
-//		echo "<br><a href='#' onclick=\"setMapCenter([42.858056, 41.128056]);setMapZoom(6);\">Caucasus</a> - <a href='#' onclick=\"setMapCenter([38.18638677, -115.16967773]);setMapZoom(6);\">Nevada</a><br>";
+		echo "<br>
+		<a href='#' onclick=\"setMapCenter([42.858056, 41.128056]);setMapZoom(6);\">Caucasus</a> -
+		<a href='#' onclick=\"setMapCenter([38.18638677, -115.16967773]);setMapZoom(6);\">Nevada</a>
+		<br>";
 		
-//		echo "<div id=\"map\" style=\"width: 600px; height: 400px;\"></div>";
-//		echo "<script>setFlightId(" . $flightid . ");setMapZoom(6);</script>";
+		echo "<div id=\"map\" style=\"width: 600px; height: 400px;\"></div>";
+		echo "<script>setFlightId(" . $flightid . ");setMapZoom(6);</script>";
 		// Leaflet does not require an API key
-//		echo "<script src=\"https://unpkg.com/leaflet/dist/leaflet.js\"></script>";
+		echo "<script src=\"https://unpkg.com/leaflet/dist/leaflet.js\"></script>";
 		// Initialize the map and set flight path
-//		echo "<script>";
-//		echo "var map = L.map('map').setView([42.858056, 41.128056], 6);"; // Initial map center and zoom level
-//		echo "L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {";
-//		echo "attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'";
-//		echo "}).addTo(map);";
-//		echo "setFlightPath(map, " . $flightid . ");"; // Function to set flight path
-//		echo "</script>";
+		echo "<script>";
+		echo "var map = L.map('map').setView([42.858056, 41.128056], 6);"; // Initial map center and zoom level
+		echo "L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {";
+		echo "attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'";
+		echo "}).addTo(map);";
+		echo "setFlightPath(map, " . $flightid . ");"; // Function to set flight path
+		echo "</script>";
 	}
 	
 	public function getLiveRadarMapInfoJSON() {
