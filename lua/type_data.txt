@@ -1,0 +1,6 @@
+ws_type1=1 Helicopter
+ws_type1=2 Aeroplane
+ws_type1=4 Ground unit
+
+coalition=1  RED
+coalition=2  BLUE
