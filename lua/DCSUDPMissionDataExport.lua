@@ -274,7 +274,7 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
             eWeaponCat = "No Weapon"
             eWeaponName = "No Weapon"
         else
-            if (e.id == world.event.S_EVENT_EJECTION)
+            if (e.id == world.event.S_EVENT_EJECTION) then
                 eWeaponCat = "No Weapon"
                 eWeaponName = "No Weapon"
             else
