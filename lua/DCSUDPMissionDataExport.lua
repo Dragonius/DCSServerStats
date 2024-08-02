@@ -214,55 +214,53 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
         
         -- Initiator variables
         if e.initiator then
-            if string.sub(e.initiator:getName(), 1, string.len("CARGO")) ~= "CARGO" then
-                
-                -- safety - hit building or unmanned vehicle
-                if not e.initiator['getPlayerName'] then            
-                    return
-                end
-            
-                -- Get initiator player name or AI if NIL
-                if not e.initiator:getPlayerName() then
-                    InitPlayer = "AI"
-                else
-                    InitPlayer = e.initiator:getPlayerName()
-                end
-            
-                -- Check Category of object
-                -- If no category
-                if not Object.getCategory(e.initiator) then
-                    InitID_ = e.initiator.id_
-                    InitCoa = SETCoalition[e.initiator:getCoalition()]
-                    InitGroupCat = SETGroupCat[e.initiator:getCategory()]
-                    InitType = e.initiator:getTypeName()
-                -- if Category is UNIT    
-                elseif Object.getCategory(e.initiator) == Object.Category.UNIT then
-                    local InitGroup = e.initiator:getGroup()
-                    InitID_ = e.initiator.id_
-                    
-                    if InitGroup and InitGroup:isExist() then
-                        InitCoa = SETCoalition[InitGroup:getCoalition()]
-                        InitGroupCat = SETGroupCat[InitGroup:getCategory() + 1]
+            -- Check if e.initiator has the getName method and it's not nil
+            if e.initiator.getName and e.initiator:getName() then
+                if string.sub(e.initiator:getName(), 1, string.len("CARGO")) ~= "CARGO" then
+                    -- safety - hit building or unmanned vehicle
+                    if not e.initiator['getPlayerName'] then            
+                        return
+                    end
+                        -- Get initiator player name or AI if NIL
+                    if not e.initiator:getPlayerName() then
+                        InitPlayer = "AI"
                     else
+                        InitPlayer = e.initiator:getPlayerName()
+                    end
+                    -- Check Category of object
+                    -- If no category
+                    if not Object.getCategory(e.initiator) then
+                        InitID_ = e.initiator.id_
                         InitCoa = SETCoalition[e.initiator:getCoalition()]
                         InitGroupCat = SETGroupCat[e.initiator:getCategory()]
-                    end
-                    InitType = e.initiator:getTypeName()
-                    
-                    -- Birth event airborne
-                    if (e.id == world.event.S_EVENT_BIRTH) then
-                        if (Object.inAir(e.initiator)) then
-                            WorldEvent = "S_EVENT_BIRTH_AIRBORNE"
+                        InitType = e.initiator:getTypeName()
+                    -- if Category is UNIT    
+                    elseif Object.getCategory(e.initiator) == Object.Category.UNIT then
+                        local InitGroup = e.initiator:getGroup()
+                        InitID_ = e.initiator.id_
+                        if InitGroup and InitGroup:isExist() then
+                            InitCoa = SETCoalition[InitGroup:getCoalition()]
+                            InitGroupCat = SETGroupCat[InitGroup:getCategory() + 1]
+                        else
+                            InitCoa = SETCoalition[e.initiator:getCoalition()]
+                            InitGroupCat = SETGroupCat[e.initiator:getCategory()]
                         end
+                        InitType = e.initiator:getTypeName()
+                        -- Birth event airborne
+                        if (e.id == world.event.S_EVENT_BIRTH) then
+                            if (Object.inAir(e.initiator)) then
+                                WorldEvent = "S_EVENT_BIRTH_AIRBORNE"
+                            end
+                        end
+                    -- if Category is STATIC
+                    elseif  Object.getCategory(e.initiator) == Object.Category.STATIC then
+                        InitID_ = e.initiator.id_
+                        InitCoa = SETCoalition[e.initiator:getCoalition()]
+                        InitGroupCat = SETGroupCat[e.initiator:getCategory()]
+                        InitType = e.initiator:getTypeName()
                     end
-                -- if Category is STATIC
-                elseif  Object.getCategory(e.initiator) == Object.Category.STATIC then
-                    InitID_ = e.initiator.id_
-                    InitCoa = SETCoalition[e.initiator:getCoalition()]
-                    InitGroupCat = SETGroupCat[e.initiator:getCategory()]
-                    InitType = e.initiator:getTypeName()
                 end
-            elseif not e.initiator then
+            else
                 InitID_ = "No Initiator"
                 InitCoa = "No Initiator"
                 InitGroupCat = "No Initiator"
@@ -276,12 +274,12 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
             eWeaponCat = "No Weapon"
             eWeaponName = "No Weapon"
         else
-            local eWeaponDesc = e.weapon:getDesc()
-            -- Check if eWeaponDesc is nil or its displayName is "Weapon doesn't exist"
-            if eWeaponDesc == nil or eWeaponDesc.displayName == "Weapon doesn't exist" then
+            if (e.id == world.event.S_EVENT_EJECTION)
                 eWeaponCat = "No Weapon"
                 eWeaponName = "No Weapon"
             else
+                local eWeaponDesc = e.weapon:getDesc()
+                -- Check if eWeaponDesc is nil or its displayName is "Weapon doesn't exist"
                 eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
                 eWeaponName = eWeaponDesc.displayName
             end
