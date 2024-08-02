@@ -274,12 +274,13 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
             eWeaponCat = "No Weapon"
             eWeaponName = "No Weapon"
         else
+            -- Check if world.event.S_EVENT_EJECTION as then eWeaponDesc is nil
             if (e.id == world.event.S_EVENT_EJECTION) then
                 eWeaponCat = "No Weapon"
                 eWeaponName = "No Weapon"
             else
                 local eWeaponDesc = e.weapon:getDesc()
-                -- Check if eWeaponDesc is nil or its displayName is "Weapon doesn't exist"
+
                 eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
                 eWeaponName = eWeaponDesc.displayName
             end
