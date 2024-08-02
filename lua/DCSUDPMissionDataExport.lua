@@ -277,10 +277,18 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
             eWeaponName = "No Weapon"
         else
             local eWeaponDesc = e.weapon:getDesc()
-            eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
-            eWeaponName = eWeaponDesc.displayName
+            -- Check if eWeaponDesc is nil or its displayName is "Weapon doesn't exist"
+
+            if eWeaponDesc == nil or eWeaponDesc.displayName == "Weapon doesn't exist" then
+                eWeaponCat = "No Weapon"
+                eWeaponName = "No Weapon"
+
+            else
+                eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
+                eWeaponName = eWeaponDesc.displayName
+            end
         end
-        
+
         -- Target variables
         if e.target then
             if string.sub(e.target:getName(), 1, string.len("CARGO")) ~= "CARGO" then
