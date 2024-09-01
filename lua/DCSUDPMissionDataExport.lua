@@ -279,7 +279,8 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
                 eWeaponCat = "No Weapon"
                 eWeaponName = "No Weapon"
             else
-                local eWeaponDesc = e.weapon:getDesc()
+                local eWeaponDesc = "No Weapon"
+                eWeaponDesc = e.weapon:getDesc()
 
                 eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
                 eWeaponName = eWeaponDesc.displayName
