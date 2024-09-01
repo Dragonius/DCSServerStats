@@ -206,7 +206,8 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
         local TargPlayer = ""
         local TargCoa = ""
         local TargGroupCat = ""
-        
+		-- added here to debug
+		local eWeaponDesc = "No Weapon"        
         -- safe world event
         if WorldEvent == nil then
             WorldEvent = "S_EVENT_UNKNOWN"
@@ -275,15 +276,21 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
             eWeaponName = "No Weapon"
         else
             -- Check if world.event.S_EVENT_EJECTION as then eWeaponDesc is nil
-            if (e.id == world.event.S_EVENT_EJECTION) then
+            if (e.id == world.event.S_EVENT_SCORE) then
                 eWeaponCat = "No Weapon"
                 eWeaponName = "No Weapon"
             else
-                local eWeaponDesc = "No Weapon"
-                eWeaponDesc = e.weapon:getDesc()
-
-                eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
-                eWeaponName = eWeaponDesc.displayName
+				print(debug.getinfo(1))
+				--self:Debug("Bug here by " .. (eWeaponDesc or "No Weapon") .. " error")
+                eWeaponDesc = "No Weapon"
+                if e.weapon:getDesc() == nil then
+					eWeaponDesc = "No Weapon"
+					eWeaponName = "No Weapon"
+				--eWeaponDesc = e.weapon:getDesc()
+				else
+					eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
+					eWeaponName = eWeaponDesc.displayName
+				end
             end
         end
 
@@ -337,12 +344,19 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
                 TargType = "No target"
                 TargPlayer = "No target"
             end
+		--problem with TargGroupCat is nil
+		--problem with eWeaponName is nil
+		
+		
+		
+		
+		-- PROBLEM missile lauch and paracute
         end
+
         
         -- write events to table
         if e.id == world.event.S_EVENT_HIT 
         or e.id == world.event.S_EVENT_SHOT
-        or e.id == world.event.S_EVENT_EJECTION
         or e.id == world.event.S_EVENT_BIRTH
         or e.id == world.event.S_EVENT_CRASH
         or e.id == world.event.S_EVENT_DEAD
@@ -351,12 +365,15 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
         or e.id == world.event.S_EVENT_MISSION_START
         or e.id == world.event.S_EVENT_MISSION_END
         or e.id == world.event.S_EVENT_PLAYER_LEAVE_UNIT
-        or e.id == world.event.S_EVENT_TAKEOFF then
+        or e.id == world.event.S_EVENT_TAKEOFF
+		-- try find problem below
+		or e.id == world.event.S_EVENT_EJECTION
+		or e.id == world.event.S_EVENT_SCORE		then
         
             udp = socket.udp()
             udp:settimeout(0)
             udp:setpeername(UDPip, UDPport)
-            
+			
             local sendstr = math.floor(timer.getTime()) .. "," .. WorldEvent .. "," .. InitID_ .. "," .. InitCoa .. "," .. InitGroupCat .. "," .. InitType .. "," .. InitPlayer .. "," .. eWeaponCat .. "," .. eWeaponName .. "," .. TargID_ .. "," .. TargCoa .. "," .. TargGroupCat .. "," .. TargType .. "," .. TargPlayer
             -- env.info(sendstr, true)
             
