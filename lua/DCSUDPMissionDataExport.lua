@@ -205,9 +205,7 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
         local TargType = ""
         local TargPlayer = ""
         local TargCoa = ""
-        local TargGroupCat = ""
-		-- added here to debug
-		local eWeaponDesc = "No Weapon"        
+        local TargGroupCat = ""      
         -- safe world event
         if WorldEvent == nil then
             WorldEvent = "S_EVENT_UNKNOWN"
@@ -274,25 +272,18 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
         if e.weapon == nil then
             eWeaponCat = "No Weapon"
             eWeaponName = "No Weapon"
+			eWeaponDesc = "No Weapon"
         else
-            -- Check if world.event.S_EVENT_EJECTION as then eWeaponDesc is nil
-            if (e.id == world.event.S_EVENT_SCORE) then
-                eWeaponCat = "No Weapon"
-                eWeaponName = "No Weapon"
-            else
-				print(debug.getinfo(1))
-				--self:Debug("Bug here by " .. (eWeaponDesc or "No Weapon") .. " error")
-                eWeaponDesc = "No Weapon"
-                if e.weapon:getDesc() == nil then
-					eWeaponDesc = "No Weapon"
-					eWeaponName = "No Weapon"
-				--eWeaponDesc = e.weapon:getDesc()
-				else
-					eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
-					eWeaponName = eWeaponDesc.displayName
-				end
-            end
-        end
+			if (e.id == world.event.S_EVENT_SHOT) or (e.id == world.event.S_EVENT_HIT) then
+				eWeaponDesc = e.weapon:getDesc()
+				eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
+				eWeaponName = eWeaponDesc.displayName
+			end
+			eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
+			eWeaponName = eWeaponDesc.displayName
+		end
+
+
 
         -- Target variables
         if e.target then
@@ -366,14 +357,25 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
         or e.id == world.event.S_EVENT_MISSION_END
         or e.id == world.event.S_EVENT_PLAYER_LEAVE_UNIT
         or e.id == world.event.S_EVENT_TAKEOFF
-		-- try find problem below
 		or e.id == world.event.S_EVENT_EJECTION
-		or e.id == world.event.S_EVENT_SCORE		then
+		or e.id == world.event.S_EVENT_SCORE 
+		then
         
             udp = socket.udp()
             udp:settimeout(0)
             udp:setpeername(UDPip, UDPport)
 			
+			--i need to fix theese NIL
+			if eWeaponName == nil then
+				eWeaponName = "No Weapon"
+			end
+			if eWeaponCat == nil then
+				eWeaponCat  = "No Weapon"
+			end
+			if TargGroupCat == nil then
+				TargGroupCat  = "No Weapon"
+			end
+			-- end of fix
             local sendstr = math.floor(timer.getTime()) .. "," .. WorldEvent .. "," .. InitID_ .. "," .. InitCoa .. "," .. InitGroupCat .. "," .. InitType .. "," .. InitPlayer .. "," .. eWeaponCat .. "," .. eWeaponName .. "," .. TargID_ .. "," .. TargCoa .. "," .. TargGroupCat .. "," .. TargType .. "," .. TargPlayer
             -- env.info(sendstr, true)
             
