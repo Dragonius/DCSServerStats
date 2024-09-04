@@ -205,8 +205,7 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
         local TargType = ""
         local TargPlayer = ""
         local TargCoa = ""
-        local TargGroupCat = ""
-        
+        local TargGroupCat = ""      
         -- safe world event
         if WorldEvent == nil then
             WorldEvent = "S_EVENT_UNKNOWN"
@@ -214,55 +213,53 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
         
         -- Initiator variables
         if e.initiator then
-            if string.sub(e.initiator:getName(), 1, string.len("CARGO")) ~= "CARGO" then
-                
-                -- safety - hit building or unmanned vehicle
-                if not e.initiator['getPlayerName'] then            
-                    return
-                end
-            
-                -- Get initiator player name or AI if NIL
-                if not e.initiator:getPlayerName() then
-                    InitPlayer = "AI"
-                else
-                    InitPlayer = e.initiator:getPlayerName()
-                end
-            
-                -- Check Category of object
-                -- If no category
-                if not Object.getCategory(e.initiator) then
-                    InitID_ = e.initiator.id_
-                    InitCoa = SETCoalition[e.initiator:getCoalition()]
-                    InitGroupCat = SETGroupCat[e.initiator:getCategory()]
-                    InitType = e.initiator:getTypeName()
-                -- if Category is UNIT    
-                elseif Object.getCategory(e.initiator) == Object.Category.UNIT then
-                    local InitGroup = e.initiator:getGroup()
-                    InitID_ = e.initiator.id_
-                    
-                    if InitGroup and InitGroup:isExist() then
-                        InitCoa = SETCoalition[InitGroup:getCoalition()]
-                        InitGroupCat = SETGroupCat[InitGroup:getCategory() + 1]
+            -- Check if e.initiator has the getName method and it's not nil
+            if e.initiator.getName and e.initiator:getName() then
+                if string.sub(e.initiator:getName(), 1, string.len("CARGO")) ~= "CARGO" then
+                    -- safety - hit building or unmanned vehicle
+                    if not e.initiator['getPlayerName'] then            
+                        return
+                    end
+                        -- Get initiator player name or AI if NIL
+                    if not e.initiator:getPlayerName() then
+                        InitPlayer = "AI"
                     else
+                        InitPlayer = e.initiator:getPlayerName()
+                    end
+                    -- Check Category of object
+                    -- If no category
+                    if not Object.getCategory(e.initiator) then
+                        InitID_ = e.initiator.id_
                         InitCoa = SETCoalition[e.initiator:getCoalition()]
                         InitGroupCat = SETGroupCat[e.initiator:getCategory()]
-                    end
-                    InitType = e.initiator:getTypeName()
-                    
-                    -- Birth event airborne
-                    if (e.id == world.event.S_EVENT_BIRTH) then
-                        if (Object.inAir(e.initiator)) then
-                            WorldEvent = "S_EVENT_BIRTH_AIRBORNE"
+                        InitType = e.initiator:getTypeName()
+                    -- if Category is UNIT    
+                    elseif Object.getCategory(e.initiator) == Object.Category.UNIT then
+                        local InitGroup = e.initiator:getGroup()
+                        InitID_ = e.initiator.id_
+                        if InitGroup and InitGroup:isExist() then
+                            InitCoa = SETCoalition[InitGroup:getCoalition()]
+                            InitGroupCat = SETGroupCat[InitGroup:getCategory() + 1]
+                        else
+                            InitCoa = SETCoalition[e.initiator:getCoalition()]
+                            InitGroupCat = SETGroupCat[e.initiator:getCategory()]
                         end
+                        InitType = e.initiator:getTypeName()
+                        -- Birth event airborne
+                        if (e.id == world.event.S_EVENT_BIRTH) then
+                            if (Object.inAir(e.initiator)) then
+                                WorldEvent = "S_EVENT_BIRTH_AIRBORNE"
+                            end
+                        end
+                    -- if Category is STATIC
+                    elseif  Object.getCategory(e.initiator) == Object.Category.STATIC then
+                        InitID_ = e.initiator.id_
+                        InitCoa = SETCoalition[e.initiator:getCoalition()]
+                        InitGroupCat = SETGroupCat[e.initiator:getCategory()]
+                        InitType = e.initiator:getTypeName()
                     end
-                -- if Category is STATIC
-                elseif  Object.getCategory(e.initiator) == Object.Category.STATIC then
-                    InitID_ = e.initiator.id_
-                    InitCoa = SETCoalition[e.initiator:getCoalition()]
-                    InitGroupCat = SETGroupCat[e.initiator:getCategory()]
-                    InitType = e.initiator:getTypeName()
                 end
-            elseif not e.initiator then
+            else
                 InitID_ = "No Initiator"
                 InitCoa = "No Initiator"
                 InitGroupCat = "No Initiator"
@@ -275,12 +272,19 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
         if e.weapon == nil then
             eWeaponCat = "No Weapon"
             eWeaponName = "No Weapon"
+			eWeaponDesc = "No Weapon"
         else
-            local eWeaponDesc = e.weapon:getDesc()
-            eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
-            eWeaponName = eWeaponDesc.displayName
-        end
-        
+			if (e.id == world.event.S_EVENT_SHOT) or (e.id == world.event.S_EVENT_HIT) then
+				eWeaponDesc = e.weapon:getDesc()
+				eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
+				eWeaponName = eWeaponDesc.displayName
+			end
+			eWeaponCat = SETWeaponCatName[eWeaponDesc.category]
+			eWeaponName = eWeaponDesc.displayName
+		end
+
+
+
         -- Target variables
         if e.target then
             if string.sub(e.target:getName(), 1, string.len("CARGO")) ~= "CARGO" then
@@ -331,12 +335,19 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
                 TargType = "No target"
                 TargPlayer = "No target"
             end
+		--problem with TargGroupCat is nil
+		--problem with eWeaponName is nil
+		
+		
+		
+		
+		-- PROBLEM missile lauch and paracute
         end
+
         
         -- write events to table
         if e.id == world.event.S_EVENT_HIT 
         or e.id == world.event.S_EVENT_SHOT
-        or e.id == world.event.S_EVENT_EJECTION
         or e.id == world.event.S_EVENT_BIRTH
         or e.id == world.event.S_EVENT_CRASH
         or e.id == world.event.S_EVENT_DEAD
@@ -345,12 +356,26 @@ if CbaconExp == nil then -- Protection against multiple references (typically wr
         or e.id == world.event.S_EVENT_MISSION_START
         or e.id == world.event.S_EVENT_MISSION_END
         or e.id == world.event.S_EVENT_PLAYER_LEAVE_UNIT
-        or e.id == world.event.S_EVENT_TAKEOFF then
+        or e.id == world.event.S_EVENT_TAKEOFF
+		or e.id == world.event.S_EVENT_EJECTION
+		or e.id == world.event.S_EVENT_SCORE 
+		then
         
             udp = socket.udp()
             udp:settimeout(0)
             udp:setpeername(UDPip, UDPport)
-            
+			
+			--i need to fix theese NIL
+			if eWeaponName == nil then
+				eWeaponName = "No Weapon"
+			end
+			if eWeaponCat == nil then
+				eWeaponCat  = "No Weapon"
+			end
+			if TargGroupCat == nil then
+				TargGroupCat  = "No Weapon"
+			end
+			-- end of fix
             local sendstr = math.floor(timer.getTime()) .. "," .. WorldEvent .. "," .. InitID_ .. "," .. InitCoa .. "," .. InitGroupCat .. "," .. InitType .. "," .. InitPlayer .. "," .. eWeaponCat .. "," .. eWeaponName .. "," .. TargID_ .. "," .. TargCoa .. "," .. TargGroupCat .. "," .. TargType .. "," .. TargPlayer
             -- env.info(sendstr, true)
             
