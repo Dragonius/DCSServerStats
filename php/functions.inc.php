@@ -238,18 +238,18 @@ class SimStats {
 	
 	
 	public function quicksort($seq, $key) {
-	    if(!count($seq)) return $seq;
+		if(!count($seq)) return $seq;
 		$pivot= $seq[0];
-	    $low = array();
-	    $high = array();
-	    $length = count($seq);
-	    for($i=1; $i < $length; $i++) {
-	        if($seq[$i]->$key <= $pivot->$key) {
-	            $low [] = $seq[$i];
-	        } else {
-	            $high[] = $seq[$i];
-	        }
-	    }
+		$low = array();
+		$high = array();
+		$length = count($seq);
+		for($i=1; $i < $length; $i++) {
+			if($seq[$i]->$key <= $pivot->$key) {
+				$low [] = $seq[$i];
+			} else {
+				$high[] = $seq[$i];
+			}
+		}
 		return array_merge($this->quicksort($low, $key), array($pivot), $this->quicksort($high, $key));
 	}
 	
@@ -564,7 +564,23 @@ class SimStats {
 //		echo "</script>";
 
 		echo "<script>";
-        echo "var map = L.map('map').setView([42.858056, 41.128056], 7);"; // Initial map center and zoom level
+        echo "var map = L.map('map').setView([42.858056, 41.128056], 7);\n"; // Initial map center and zoom level
+        $result = $this->mysqli->query("SELECT a.name, p.lat, p.lon, p.alt, MAX(p.time) AS TIME, p.raw_id, i.disp_name 
+		FROM position_data p 
+		JOIN aircrafts a ON p.aircraftid = a.id JOIN pilots i ON i.id = p.pilotid 
+		WHERE a.name IS NOT NULL AND a.name <> '' 
+		GROUP BY p.aircraftid, p.raw_id");
+
+        if ($row = $result->fetch_object()) {
+            // Use do...while to loop through the results
+            do {
+                echo "const id" . $row->raw_id ." = L.latLng([" . $row->lat . "," . $row->lon ."])\n";
+                echo "L.marker(id" . $row->raw_id .").addTo(map)\n";
+            // Fetch the next row
+            $row = $result->fetch_assoc();
+            }
+            while ($row = $result->fetch_object());
+        }
 //		echo "const map = L.map('map', {
 //		crs: L.CRS.Simple,
 //		minZoom: 0
@@ -603,6 +619,7 @@ class SimStats {
 //		echo "<script src=\"https://unpkg.com/leaflet/dist/leaflet.js\"></script>";
 		// Initialize the map and set flight path
 //		echo "<script>";
+
 //		echo "var map = L.map('map').setView([42.858056, 41.128056], 6);"; // Initial map center and zoom level
 //		echo "L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {";
 //		echo "attribution: '&copy; <a href=\"https://www.openstreetmap.org/copyright\">OpenStreetMap</a> contributors'";
