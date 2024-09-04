@@ -547,13 +547,13 @@ class SimStats {
 	
 	public function echoLiveRadarMapScript() {
 		echo "<br>
+		<h2> Dont work yet </h2>
 		<a href='#' onclick=\"setMapCenter([42.858056, 41.128056]);setMapZoom(7);\">Caucasus</a> - 
 		<a href='#' onclick=\"setMapCenter([38.18638677, -115.16967773]);setMapZoom(7);\">Nevada</a>
 		<br>";
 		
-		echo "<link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css'/>";	
-		echo "<div id=\"map\" style=\"width: 600px; height: 400px;\"></div>";
-//		// Leaflet does not require an API key
+		echo "<div id=\"map\" style=\"width: 600px; height: 600px;\"></div>";
+		// Leaflet does not require an API key
 		echo "<script src=\"https://unpkg.com/leaflet/dist/leaflet.js\"></script>";
 //		// Initialize the map
 //		echo "<script>";
